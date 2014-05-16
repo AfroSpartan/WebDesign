@@ -1,3 +1,58 @@
+var init = function(){
+
+  var domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
+      elm = $('.loading')[0],
+      animation = false,
+      transformation = false,
+      animationstring = 'animation',
+      transformstring = 'transform',
+      keyframeprefix = '',
+      pfx = '';
+
+  if( elm.style.animationName ) { animation = true; }    
+  if( elm.style.transform ) { transformation = true; }    
+
+  if( animation === false ) {
+    for( var i = 0; i < domPrefixes.length; i++ ) {
+      if( elm.style[ domPrefixes[i] + 'AnimationName' ] !== undefined ) {
+        pfx = domPrefixes[ i ];
+        animationstring = pfx + 'Animation';
+        keyframeprefix = '-' + pfx.toLowerCase() + '-';
+        animation = true;
+        break;
+      }
+    }
+  }
+  
+  if( transformation === false ) {
+    for( var i = 0; i < domPrefixes.length; i++ ) {
+      if( elm.style[ domPrefixes[i] + 'Transform' ] !== undefined ) {
+        pfx = domPrefixes[ i ];
+        transformstring = pfx + 'Transform';
+        transformation = true;
+        break;
+      }
+    }
+  }
+  var NewValue = ((($(document).width() - 966) * (90 - 65)) / (1980 - 966)) + 65;
+  var NewValue2 = ((($(document).width() - 966) * (100 - 75)) / (1980 - 966)) + 75;
+  var keyframes = ('@' + keyframeprefix + 'keyframes loading-anim { '+
+                   '0%{'+'stroke-dasharray:200 2000;'+'stroke-dashoffset:200;'+'}'+
+                   '30%{'+ 'stroke-dasharray:200 2000;'+'stroke-dashoffset:200;'+'}'+
+                   '40%{'+'stroke-dasharray:50 2000;'+'stroke-dashoffset:-'+ (($(document).width() / 100) * 40)+';'+'}'+
+                   NewValue+'%{'+'stroke-dasharray:50 2000;'+'stroke-dashoffset:-'+ (($(document).width() / 100) * 60) +';'+'}'+
+                   NewValue2+'%{'+'stroke-dasharray:200 2000;'+'stroke-dashoffset:-'+($(document).width()) +';'+'}'+
+                   '100%{'+'stroke-dasharray:200 2000;'+'stroke-dashoffset:-'+($(document).width()) +';'+'}'+'}');
+
+  if(document.styleSheets && document.styleSheets.length){
+    document.styleSheets[0].insertRule( keyframes, document.styleSheets[0].cssRules.length );
+  }else{
+    var s = document.createElement( 'style' );
+    s.innerHTML = keyframes;
+    document.getElementsByTagName( 'head' )[ 0 ].appendChild( s );
+  }
+}
+
 trim = function(str, chars) {
     return ltrim(rtrim(str, chars), chars);
 }
@@ -17,6 +72,9 @@ function RemoveTag(row){
 }
 
 $(document).ready(function(){
+  $(window).resize(function(){
+    init();
+  });
   $('#filters .minimize').click(function(){
     if($('#filters').css('margin') !== ('-' + ($('#filters').height() - 4) +'px 0px 0px')){
       $('#filters').css('margin', '-'+ ($('#filters').height() - 4) +'px 0px 0px 0px');
@@ -27,7 +85,7 @@ $(document).ready(function(){
     }
   });
   $('.loading').each(function(){
-    $(this).html("<svg><defs><filter id='f1' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='8' /></filter></defs><path d='M0 3 L" + $(window).width() + " 3'/><path filter='url(#f1)' d='M0 3 L" + $(window).width() + " 3'/></svg><svg><defs><filter id='f1' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='8' /></filter></defs><path d='M0 3 L" + $(window).width() + " 3'/><path filter='url(#f1)' d='M0 3 L" + $(window).width() + " 3'/></svg><svg><defs><filter id='f1' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='8' /></filter></defs><path d='M0 3 L" + $(window).width() + " 3'/><path filter='url(#f1)' d='M0 3 L" + $(window).width() + " 3'/></svg>");});
+    $(this).html("<svg><defs><filter id='f2' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='1' /></filter><filter id='f1' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='8' /></filter></defs><path d='M0 3 L" + $(document).width() + " 3'/><path filter='url(#f1)' d='M0 3 L" + $(document).width() + " 3'/><path stroke-width='2' stroke='#fff' filter='url(#f2)' d='M0 2 L" + $(document).width() + " 2'/></svg><svg><defs><filter id='f2' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='1' /></filter><filter id='f1' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='8' /></filter></defs><path d='M0 3 L" + $(document).width() + " 3'/><path filter='url(#f1)' d='M0 3 L" + $(document).width() + " 3'/><path stroke-width='2' stroke='#fff' filter='url(#f2)' d='M0 2 L" + $(document).width() + " 2'/></svg><svg><defs><filter id='f2' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='1' /></filter><filter id='f1' x='3' y='-3'><feGaussianBlur in='SourceGraphic' stdDeviation='8' /></filter></defs><path d='M0 3 L" + $(document).width() + " 3'/><path filter='url(#f1)' d='M0 3 L" + $(document).width() + " 3'/><path stroke-width='2' stroke='#fff' filter='url(#f2)' d='M0 2 L" + $(document).width() + " 2'/></svg>");});
   $('.loading svg').each(function(index){
     $(this).css('animation','loading-anim 3s linear '+ index*0.2 +'s infinite');
   });
@@ -91,4 +149,5 @@ $(document).ready(function(){
     $('#tag-selected-area table tr').last().show("slow");
     $(this).remove();
   });
+  init();
 });

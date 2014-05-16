@@ -418,7 +418,7 @@ h1{
   margin:0px
 }
 
-@-webkit-keyframes loading-anim{
+/*@-webkit-keyframes loading-anim{
   0%{
     stroke-dasharray:200 2000;
     stroke-dashoffset:200;
@@ -439,4 +439,4 @@ h1{
     stroke-dasharray:200 2000;
     stroke-dashoffset:-2000;
   }
-}
+}*/
