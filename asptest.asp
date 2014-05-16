@@ -1,0 +1,2 @@
+<%@ LANGUAGE="VBSCRIPT" %>
+<%=Now()%>
