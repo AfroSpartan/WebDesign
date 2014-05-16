@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - A Pen by AfroDev</title>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<div id='banner'>
+  <div id='centred-banner'>
+    <input id='steam-id-input' type='text' value='Steam ID' /><input id='steam-id-submit' type='button' value='GO' />
+  </div>
+</div>
+<div id='filters'>
+  <div class='loading'></div>
+  <div id='centred-filters'>
+    <h1 style='padding-left:calc(50% - 57px)'>FILTERS</h1>
+    <div id='filter-wrapper'>
+      <div id='friends'>
+        <table><tr><td class='friend-cell' id='friend1'>stupert101</td><td class='friend-cancel' id='friend1-cancel'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></td></tr>
+        <tr><td class='friend-cell' id='friend2'>76561198062255138</td><td class='friend-cancel' id='friend2-cancel'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></td></tr>
+        <tr><td class='friend-cell' id='friend3'>76561197982710092</td><td class='friend-cancel' id='friend3-cancel'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></td></tr>
+        <tr><td class='friend-cell' id='friend4'>76561198022855019</td><td class='friend-cancel' id='friend4-cancel'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></td></tr>
+        <tr><td class='friend-cell' id='friend5'>davedup</td><td class='friend-cancel' id='friend5-cancel'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></td></tr>
+        <tr><td class='friend-cell' id='friend6'><select><option>Add Friend</option><option>boffdudey</option></select></td></tr></table>
+      </div>
+      <div id='tags'>
+        <div id='tag-search-area'>
+          <div id='tag-search-wrapper'><div id='tag-search-div'><input id='tag-search' value='Tags' type='text' /><input type='button' value='Search' /></div></div>
+          <div id='tag-cloud'><div class='tag'>FPS</div><div class='tag'>RPG</div><div class='tag'>Strategy</div><div class='tag'>Simulator</div><div class='tag'>Third Person</div><div class='tag'>First Person</div><div class='tag'>Survival</div>
+          </div>
+        </div>
+        <div id='tag-selected-area'>
+          <table></table>
+        </div>
+      </div>
+      <div id='genres'>
+        <div id='toggles'>
+          <table>
+            <tr><td>Singleplayer</td><td><input type='checkbox'/></td></tr>
+            <tr><td>Multiplayer</td><td><input type='checkbox'/></td></tr>
+            <tr><td>Co-op</td><td><input type='checkbox'/></td></tr>
+            <tr><td>Achievements</td><td><input type='checkbox'/></td></tr>
+            <tr><td>Trading Cards</td><td><input type='checkbox'/></td></tr>
+          </table>
+        </div>
+        <div id='selectors'>
+          <div class='selector-row'><div>RPG</div><div style='height:20px;float:right;'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></div></div>
+          <div class='selector-row'><div>FPS</div><div style='height:20px;float:right;'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></div></div>
+          <div class='selector-row'><div>Adventure</div><div style='height:20px;float:right;'><svg stroke='white' fill='white' height='20' width='20'><path d='M5 3 L10 8 15 3 17 5 12 10 17 14 15 17 10 12 5 17 3 15 8 10 3 5' /></svg></div></div>
+          <div class='selector-row'><select><option>Add Genre</option><option>Action</option></select></div>
+        </div>
+      </div>
+    </div>
+    <div class='minimize'>
+      /\
+    </div>
+  </div>
+</div>
+<div id='results'>
+  <div class='loading'></div>
+  <div id='centred-results'>
+    <h1 style='padding-left:calc(50% - 63px)'>RESULTS</h1>
+    <div id='results-wrapper'>
+      <div class='result'><div class='result-img'><img src='http://media.steampowered.com/steamcommunity/public/images/apps/219680/a0db2a8ad167444d7132b405a11c73a57f376ced.jpg'/></div><div class='result-title'>Proteus</div><div class='result-img-shadow'></div></div>
+      <div class='result'><div class='result-img'><img src='http://media.steampowered.com/steamcommunity/public/images/apps/48240/96fa0d0f7d3a2cfbd46cfbb3ec266e4fbc9c9953.jpg'/></div><div class='result-title'>Anno 2070</div><div class='result-img-shadow'></div></div>
+      <div class='result'><div class='result-img'><img src='http://media.steampowered.com/steamcommunity/public/images/apps/252490/cf3ec2d1e8d658c9127b6bc01cad23eae2d3b202.jpg'/></div><div class='result-title'>Rust</div><div class='result-img-shadow'></div></div>
+      <div class='result'><div class='result-img'><img src='http://media.steampowered.com/steamcommunity/public/images/apps/24860/5ec5e6c6a08bf90e8e1c77f9581fad785cfb08d7.jpg'/></div><div class='result-title'>Battlefield 2</div><div class='result-img-shadow'></div></div>
+      <div class='result'><div class='result-img'><img src='http://media.steampowered.com/steamcommunity/public/images/apps/233250/2584c0e268536e19f896441d23cccde80d0bbf68.jpg'/></div><div class='result-title'>Planetary Annihilation</div><div class='result-img-shadow'></div></div>
+      <div class='result'><div class='result-img'><img src='http://media.steampowered.com/steamcommunity/public/images/apps/22300/ddccc41c513694e7a5542aa115e9e091d6495420.jpg'/></div><div class='result-title'>Fallout 3</div><div class='result-img-shadow'></div></div>
+      <div class='result'><div class='result-img'><img src='http://media.steampowered.com/steamcommunity/public/images/apps/248820/62869ec060e6dfdd3ca53e23c85e30a16de9c291.jpg'/></div><div class='result-title'>Risk of Rain</div><div class='result-img-shadow'></div></div>
+    </div>
+  </div>
+</div>
+<div id='footer'>
+  <div id='centred-footer'>
+    Developed by Declan Hodge<br/>
+    2014 | Designed for Chrome
+  </div>
+</div>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
