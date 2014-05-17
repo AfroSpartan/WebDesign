@@ -97,7 +97,7 @@ option:hover{
   min-height:50px;
   color:#fff;
   z-index:99;
-  padding:0px 20px 20px;
+  padding:20px 0px;
   box-shadow:2px 0px 5px #000;
   transition:all 0.5s ease;
   -webkit-transition:transition:all 0.5s ease;
@@ -231,7 +231,7 @@ option:hover{
 #genres{
   position:relative;
   display:inline-block;
-  width:350px;
+  width:320px;
   height:218px;
 }
 
@@ -301,7 +301,7 @@ option:hover{
   min-height:50px;
   color:#fff;
   z-index:98;
-  padding:0px 20px 20px;
+  padding:20px 0px;
   box-shadow:2px 0px 5px #000;
 }
 
@@ -408,7 +408,7 @@ option:hover{
   min-height:50px;
   color:#050505;
   z-index:98;
-  padding:0px 20px 20px;
+  padding:20px 0px;
   text-shadow:0px 1px 0px #222;
 }
 
