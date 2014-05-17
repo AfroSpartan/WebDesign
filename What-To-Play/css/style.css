@@ -313,6 +313,9 @@ option:hover{
   width:966px;
   margin:0px auto;
   position:relative;
+}
+
+#results-wrapper{
   text-align:center;
 }
 
