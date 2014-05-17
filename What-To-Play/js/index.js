@@ -89,7 +89,7 @@ $(document).ready(function(){
   $('.loading svg').each(function(index){
     $(this).css('animation','loading-anim 3s linear '+ index*0.2 +'s infinite');
   });
-  $('#filter-wrapper, .loading, .minimize, .result').hide();
+  $('#filter-wrapper, .loading, .minimize, #results-wrapper').hide();
   ShowFilters = function(){
     $('#filters .loading').show();
     setTimeout(function(){
@@ -104,9 +104,7 @@ $(document).ready(function(){
   ShowResults = function(){
     setTimeout(function(){
       $('#centred-results h1').css('padding-left','0px');
-      $('.result').each(function(index){
-        $(this).show(500);
-      });
+      setTimeout(function(){$('#results-wrapper').stop(true).fadeIn({duration: 500, queue:false}).css('display', 'none').slideDown(500);},600);
       $('#results .loading').hide(1000);
     },5000);
   }
