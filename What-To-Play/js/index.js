@@ -1,3 +1,13 @@
+var loadFriends = function(){
+  $("#footer").html('LOADING');
+  $.ajax({
+    url:'http://steamcommunity.com/id/AfroSpartan/friends/?xml=1',
+    type:'GET'
+  }).done(function(html){
+    $("#footer").html(html);
+  });
+}
+
 var init = function(){
 
   var domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
@@ -72,6 +82,9 @@ function RemoveTag(row){
 }
 
 $(document).ready(function(){
+  $('#footer').click(function(){
+    
+  });
   $(window).resize(function(){
     init();
   });
