@@ -2,7 +2,9 @@ var loadFriends = function(){
   $("#footer").html('LOADING');
   $.ajax({
     url:'http://steamcommunity.com/id/AfroSpartan/friends/?xml=1',
-    type:'GET'
+    type:'GET',
+    dataType:'XML',
+    crossDomain:true
   }).done(function(html){
     $("#footer").html(html);
   });
