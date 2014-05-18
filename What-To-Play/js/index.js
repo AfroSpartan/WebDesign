@@ -2,6 +2,7 @@ var loadFriends = function(){
   $("#centred-footer").html('LOADING<br/><iframe  src="http://steamcommunity.com/id/AfroSpartan/friends/?xml=1" ></iframe>');
   $("#centred-footer iframe friend").each(function(){
     $("#centred-footer").append($(this).val());
+    alert();
   });
 }
 
