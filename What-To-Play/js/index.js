@@ -1,13 +1,6 @@
 var loadFriends = function(){
-  $("#footer").html('LOADING');
-  $.ajax({
-    url:'http://steamcommunity.com/id/AfroSpartan/friends/?xml=1',
-    type:'GET',
-    dataType:'XML',
-    crossDomain:true
-  }).done(function(html){
-    $("#footer").html(html);
-  });
+  $("#centred-footer").html('LOADING<br/><iframe url="http://steamcommunity.com/id/AfroSpartan/friends/?xml=1" />');
+  
 }
 
 var init = function(){
