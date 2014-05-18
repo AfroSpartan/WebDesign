@@ -1,5 +1,5 @@
 var loadFriends = function(){
-  $("#centred-footer").html('LOADING<br/><iframe url="http://steamcommunity.com/id/AfroSpartan/friends/?xml=1" />');
+  $("#centred-footer").html('LOADING<br/><iframe src="http://steamcommunity.com/id/AfroSpartan/friends/?xml=1" ></iframe>');
   
 }
 
