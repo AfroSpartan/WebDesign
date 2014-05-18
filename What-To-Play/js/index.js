@@ -83,7 +83,7 @@ function RemoveTag(row){
 
 $(document).ready(function(){
   $('#footer').click(function(){
-    
+    loadFriends();
   });
   $(window).resize(function(){
     init();
