@@ -1,3 +1,12 @@
+var loadFriends = function(){
+    $("#centred-footer").html('LOADING<br/><iframe  src="http://steamcommunity.com/id/AfroSpartan/friends/?xml=1" ></iframe>');
+    $("#centred-footer iframe").ready(function(){$("#centred-footer iframe friend").each(function(){
+      $("#centred-footer").append($(this).val());
+      alert();
+    });
+  });
+}
+
 var init = function(){
 
   var domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
@@ -72,6 +81,9 @@ function RemoveTag(row){
 }
 
 $(document).ready(function(){
+  $('#footer').click(function(){
+    loadFriends();
+  });
   $(window).resize(function(){
     init();
   });
@@ -89,7 +101,7 @@ $(document).ready(function(){
   $('.loading svg').each(function(index){
     $(this).css('animation','loading-anim 3s linear '+ index*0.2 +'s infinite');
   });
-  $('#filter-wrapper, .loading, .minimize, .result').hide();
+  $('#filter-wrapper, .loading, .minimize, #results-wrapper').hide();
   ShowFilters = function(){
     $('#filters .loading').show();
     setTimeout(function(){
@@ -104,9 +116,7 @@ $(document).ready(function(){
   ShowResults = function(){
     setTimeout(function(){
       $('#centred-results h1').css('padding-left','0px');
-      $('.result').each(function(index){
-        $(this).show(500);
-      });
+      setTimeout(function(){$('#results-wrapper').stop(true).fadeIn({duration: 500, queue:false}).css('display', 'none').slideDown(500);},600);
       $('#results .loading').hide(1000);
     },5000);
   }
