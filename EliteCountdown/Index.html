@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="Style.css" />
+	</head>
+	<body>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.jrumble.1.3.js"></script>
+		<video oncanplay="size()" id="FrameShift" loop autoplay src="Elite.mp4" ></video>
+		<div id="ETA-Container">
+			<div id="ETA-Shaker">
+				<div id="ETA-Background">
+				</div>
+				<div id="ETA">
+					<hr/>
+					ETA: 00.00.00.00
+					<hr/>
+				</div>
+			</div>
+		</div>
+		<script>
+			var td = new Date("December 16, 2014 00:00:00");
+			var e = document.getElementById("ETA");
+			var vd;
+			var cd = new Date();
+			
+			vd = td.getTime() - cd.getTime();
+			vd = vd.toString();
+			vd = vd.slice(-3);
+			
+			// left: 37, up: 38, right: 39, down: 40,
+			// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+			var keys = [37, 38, 39, 40];
+			
+			$('#ETA-Shaker').jrumble({x:2,y:2,rotation:1,speed:50});
+			
+			$('#ETA-Shaker').trigger('startRumble');
+			
+			function preventDefault(e) {
+			  e = e || window.event;
+			  if (e.preventDefault)
+				  e.preventDefault();
+			  e.returnValue = false;  
+			}
+			
+			function keydown(e) {
+				for (var i = keys.length; i--;) {
+					if (e.keyCode === keys[i]) {
+						preventDefault(e);
+						return;
+					}
+				}
+			}
+			
+			function wheel(e) {
+			  preventDefault(e);
+			}
+			
+			function disable_scroll() {
+			  if (window.addEventListener) {
+				  window.addEventListener('DOMMouseScroll', wheel, false);
+			  }
+			  window.onmousewheel = document.onmousewheel = wheel;
+			  document.onkeydown = keydown;
+			}
+			
+			function enable_scroll() {
+				if (window.removeEventListener) {
+					window.removeEventListener('DOMMouseScroll', wheel, false);
+				}
+				window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+			}
+			
+			function countdown(){
+			  cd = new Date();
+			  
+			  vd = td.getTime() - cd.getTime();
+			  vd = vd.toString();
+			  var days = Math.floor(((vd/60000)/60)/24);
+			  var hours = Math.floor(((vd/60000)/60)%24);
+			  var minutes = Math.floor((vd/60000)%60);
+			  var seconds = Math.floor((vd/1000)%60);
+			  var miliseconds = vd.slice(-3);
+			  
+			  days = days.toString();
+			  hours = hours.toString();
+			  minutes = minutes.toString();
+			  seconds = seconds.toString();
+			  
+			  if(miliseconds.length < 2){
+				miliseconds = "0" + miliseconds;
+			  }if(seconds.length < 2){
+				seconds = "0" + seconds;
+			  }if(minutes.length < 2){
+				minutes = "0" + minutes;
+			  }if(hours.length < 2){
+				hours = "0" + hours;
+			  }if(days.length < 2){
+				days = "0" + days;
+			  }
+			  if(days > 1){
+				e.innerHTML = "<hr/>ETA: " + days + ":" + hours + ":" + minutes + ":" + seconds + "<hr/>";
+			  }else{
+				  e.innerHTML = "<hr/>ETA: " + hours + ":" + minutes + ":" + seconds + ":" + miliseconds + "<hr/>";
+			  }
+			  document.getElementById("ETA-Container").style.margin = "-18px 0px 0px -" + document.getElementById("ETA").offsetWidth / 2 + "px";
+			}
+			
+			var myVar = setInterval(function(){countdown()}, 100);
+			
+			function size(){
+				document.getElementById("FrameShift").style.margin = "-" + document.getElementById("FrameShift").offsetHeight / 2 + "px 0px 0px 0px";
+			}
+			
+			disable_scroll();
+			
+		</script>
+	</body>
+</html>
