@@ -108,7 +108,7 @@
 			var myVar = setInterval(function(){countdown()}, 100);
 			
 			function size(){
-				document.getElementById("FrameShift").style.margin = "-" + document.getElementById("FrameShift").offsetHeight / 2 + "px -" + document.getElementById("FrameShift").offsetWidth / 2 + "px 0px 0px";
+				document.getElementById("FrameShift").style.margin = "-" + document.getElementById("FrameShift").offsetHeight / 2 + "px 0px 0px -" + document.getElementById("FrameShift").offsetWidth / 2 + "px";
 				if (window.innerWidth < window.innerHeight) {
 					document.getElementById("FrameShift").style.height = "100%";
 					document.getElementById("FrameShift").style.width = "";
