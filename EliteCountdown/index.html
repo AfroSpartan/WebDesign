@@ -109,7 +109,7 @@
 			
 			function size(){
 				document.getElementById("FrameShift").style.margin = "-" + document.getElementById("FrameShift").offsetHeight / 2 + "px 0px 0px -" + document.getElementById("FrameShift").offsetWidth / 2 + "px";
-				if (window.innerWidth < window.innerHeight) {
+				if (window.innerWidth / 16 < window.innerHeight / 9) {
 					document.getElementById("FrameShift").style.height = "100%";
 					document.getElementById("FrameShift").style.width = "";
 				}else{
