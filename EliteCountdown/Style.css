@@ -9,13 +9,13 @@ body{
   font-family:Orbitron;
   font-size:30px;
   background:#111;
-  overflow-y:hidden;
+  overflow:hidden;
   vertical-scroll:none;
 }
 html{
   height:100%;
   width:100%;
-  overflow-y:hidden;
+  overflow:hidden;
   user-select:none;
   -webkit-user-select:none;
   cursor:default;
@@ -24,7 +24,7 @@ video{
 	position:absolute;
 	top:50%;
 	left:50%;
-	overflow-y:hidden;
+	overflow:hidden;
 }
 #ETA-Container{
   z-index:1;
