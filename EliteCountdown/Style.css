@@ -22,7 +22,6 @@ html{
 }
 video{
 	position:absolute;
-	width:100%;
 	top:50%;
 	overflow-y:hidden;
 }
