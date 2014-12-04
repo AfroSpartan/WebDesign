@@ -111,8 +111,10 @@
 				document.getElementById("FrameShift").style.margin = "-" + document.getElementById("FrameShift").offsetHeight / 2 + "px 0px 0px 0px";
 				if (window.innerWidth < window.innerHeight) {
 					document.getElementById("FrameShift").style.height = "100%";
+					document.getElementById("FrameShift").style.width = "";
 				}else{
 					document.getElementById("FrameShift").style.width = "100%";
+					document.getElementById("FrameShift").style.height = "";
 				}
 			}
 			
